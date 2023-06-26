@@ -1,3 +1,4 @@
+#!/bin/bash
 #UPDATE
 sudo apt-get update
 #XRDP INSTALL
