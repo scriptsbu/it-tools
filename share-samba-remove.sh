@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt-get remove samba --purge -y
 sudo apt-get autoremove -y
 sudo rm -r /etc/samba
