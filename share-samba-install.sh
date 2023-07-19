@@ -31,6 +31,7 @@ echo "   directory mode 0777" | sudo tee -a /etc/samba/smb.conf
 echo "   force user = nobody" | sudo tee -a /etc/samba/smb.conf
 sudo testparm
 sudo service smbd restart
+sudo apt-get update && apt-get upgrade -f -y
 echo -e "\e[31mSHARE FOLDER LOCATED AT /SHARE\e[0m"
 ifconfig -a | grep inet
 echo -e "\e[31mCOPY THE SECOND IP\e[0m"
