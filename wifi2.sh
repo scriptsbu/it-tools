@@ -1,6 +1,4 @@
 #!/bin/bash
-sudo apt update
-sudo apt install sshpass
 dmesg | grep -e wlp -e iwl  >  wifi.txt
 sshpass -p "WIFI.wifi123?" scp -r wifi.txt wifi@10.20.240.3:/debug/wifi
 #============================================================================
