@@ -1,6 +1,6 @@
 #!/bin/bash
 dmesg | grep -e wlp -e iwl  >  wifi.txt
-scp wifi.txt ftpuser:torc.AUS?@10.20.240.3:/home/ftpuser/file_transfer -y
+scp wifi.txt ftpuser:torc.AUS?@10.20.240.3:/home/ftpuser/file_transfer
 
 #============================================================================
 #scp [source file] [username]@[destination server]
