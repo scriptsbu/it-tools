@@ -1,5 +1,5 @@
 #!/bin/bash
-dmesg | grep -e wlp -e iwl  >  wifi$USER.txt
+dmesg | grep -e wlp -e iwl  >  wifi$USER.txt -f
 sshpass -p "WIFI.wifi123?" scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt
 #============================================================================
 #scp [source file] [username]@[destination server]
