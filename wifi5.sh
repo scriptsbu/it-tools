@@ -8,14 +8,14 @@ while true;do
   
   case "${QUESTION}" in
     [Yy] ) 
-      echo "Uploading log"    
-       scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt |bar && sleep 5 && echo -e "\x1b[41;37m Log upload complete.\x1b[K\x1b[0m"
+      echo "Uploading LOG"    
+       scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt | bar && sleep 5 && echo -e "\x1b[41;37m LOG upload completed.\x1b[K\x1b[0m"
   
       ;;
 
     * ) 
       echo "Please connect to the VPN 'split push'"
-      gnome-terminal -- /opt/cisco/anyconnect/bin/vpnui && echo -e "\x1b[41;37m Press [Enter] key to proceed.\x1b[K\x1b[0m" && read -p " " && scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt
+      gnome-terminal -- /opt/cisco/anyconnect/bin/vpnui | ping -c1 10.20.240.3 && echo -e "\x1b[41;37m Press [Enter] key to proceed.\x1b[K\x1b[0m" && read -p " " && scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt
 
       ;;
   esac
