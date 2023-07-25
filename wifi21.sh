@@ -26,8 +26,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit | gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi20.sh) && xdotool windowminimize $(xdotool getactivewindow)
-      ;;
+      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi21.sh)
   esac
 done
 #==========================================================IF NO====================================================================  
@@ -35,7 +34,7 @@ done
 
     * ) 
       echo -e "\x1b[41;37m Please connect to the VPN 'split push'\x1b[K\x1b[0m"
-      gnome-terminal -- /opt/cisco/anyconnect/bin/vpnui && 
+      gnome-terminal -- /opt/cisco/anyconnect/bin/vpnui && xdotool windowminimize $(xdotool getactivewindow) && 
       echo -e "\x1b[41;37m Once connected to the VPN; Press [Enter] key to proceed.\x1b[K\x1b[0m" && 
       read -p " " && 
       ping -c1 10.20.240.3 && 
@@ -56,7 +55,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit | gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi20.sh) && xdotool windowminimize $(xdotool getactivewindow)
+      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi21.sh)
       ;;
   esac
 done
