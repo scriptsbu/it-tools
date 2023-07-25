@@ -26,7 +26,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi-debug.sh)
+      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi-debug.sh) | xdotool windowminimize $(xdotool getactivewindow)
       ;;
   esac
 done
@@ -56,7 +56,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi-debug.sh)
+      exit && gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi-debug.sh) | xdotool windowminimize $(xdotool getactivewindow)
       ;;
   esac
 done
