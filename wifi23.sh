@@ -26,7 +26,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi22.sh) && exit
+      exit && read -p "Press [ENTER] key to start again" && bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi23.sh) 
   esac
 done
 #==========================================================IF NO====================================================================  
@@ -55,7 +55,7 @@ while true;do
 
     * ) 
       echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      gnome-terminal -- bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi22.sh) && exit
+      exit && read -p "Press [ENTER] key to start again" && bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi23.sh) 
       ;;
   esac
 done
