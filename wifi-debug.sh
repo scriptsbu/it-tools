@@ -20,7 +20,7 @@ while true;do
   case "${QUESTION}" in
     [Yy] ) 
       echo -e "\x1b[41;37m Uploading LOG\x1b[K\x1b[0m"
-      scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt && 
+      scp -r wifi$USER.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt && 
       echo -e "\x1b[41;37m LOG upload completed.\x1b[K\x1b[0m" && rm wifi$USER.txt | sleep 5 && exit
   
       ;;
@@ -49,7 +49,7 @@ while true;do
   case "${QUESTION}" in
     [Yy] ) 
       echo -e "\x1b[41;37m Uploading LOG\x1b[K\x1b[0m"
-      scp -r wifi.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt && 
+      scp -r wifi$USER.txt wifi@10.20.240.3:/debug/wifi/wifi$USER.txt && 
       echo -e "\x1b[41;37m LOG upload completed.\x1b[K\x1b[0m" && rm wifi$USER.txt | sleep 5 && exit
   
       ;;
