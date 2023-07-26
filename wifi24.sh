@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /home/$USER
+rm wifi$USER.txt -f
 dmesg | grep -e wlp -e iwl  >  wifi$USER.txt
 
 while true;do
@@ -25,8 +26,8 @@ while true;do
       ;;
 
     * ) 
-      echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit && read -p "Press [ENTER] key to start again" && bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi23.sh) 
+      echo -e "\x1b[41;37m Press [ENTER] key to manually send the file.\x1b[K\x1b[0m"
+       read -p " " && nautilus /home/$USER
   esac
 done
 #==========================================================IF NO====================================================================  
@@ -54,8 +55,8 @@ while true;do
       ;;
 
     * ) 
-      echo -e "\x1b[41;37m Press [ENTER] key to exit terminal and run the command again.\x1b[K\x1b[0m"
-      exit && read -p "Press [ENTER] key to start again" && bash <(curl -Ls https://github.com/scriptsbu/solutions/raw/main/wifi23.sh) 
+     echo -e "\x1b[41;37m Press [ENTER] key to manually send the file.\x1b[K\x1b[0m"
+       read -p " " && nautilus /home/$USER
       ;;
   esac
 done
