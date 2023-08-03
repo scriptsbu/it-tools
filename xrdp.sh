@@ -7,11 +7,11 @@ sudo systemctl start xrdp
 sudo systemctl enable xrdp
 sudo adduser xrdp ssl-cert
 #UFW ENABLE
-sudo systemctl start ufw
 sudo systemctl enable ufw
 sudo ufw enable
-sudo ufw allow from any to any port 3389 proto tcp
-sudo ufw allow 3389/tcp
+sudo systemctl start ufw
+#sudo ufw allow from any to any port 3389 proto tcp
+#sudo ufw allow 3389/tcp
 #UFW AUTO-ENABLE
 cd /lib/systemd/system/
 >ufw.service
