@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt update
+cd Downloads
 echo -e "\x1b[41;37m You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
 read -p ""
 #CONNECT TO VPN
