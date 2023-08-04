@@ -16,3 +16,4 @@ bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/it/slackit.sh)
 bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/it/vmwareit.sh)
 #CISCO ANYCONNECT
 bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/ciscovpn.sh)
+sudo apt-get update && apt-get upgrade -f -y
