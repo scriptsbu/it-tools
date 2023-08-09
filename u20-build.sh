@@ -1,4 +1,6 @@
 #!/bin/bash
+echo -e "\x1b[41;37mRun this script at the ADMIN account; Please press [ENTER] to proceed.\x1b[K\x1b[0m"
+read -p ""
 sudo apt update
 cd Downloads
 ping -c2 10.20.240.3 | grep packet
@@ -70,7 +72,7 @@ do
                 echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
                 sudo dmidecode -t system
                 #======================================================================================
-                echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mAll done! You can exit now and test the customers account.\x1b[K\x1b[0m"
                 sleep 10 && exit
             ;;
         "Option 2-W/O VPN")
@@ -131,7 +133,7 @@ do
                 echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
                 sudo dmidecode -t system
                 #======================================================================================
-                echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mAll done! You can exit now and test the customers account.\x1b[K\x1b[0m"
                 sleep 10 && exit
             ;;
         "Quit")
