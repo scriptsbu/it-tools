@@ -4,8 +4,9 @@ SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/so
 
 XRDP (Enable Remote desktop): bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/xrdp.sh)
 
-
-
+UBUNTU 20 BUILD: (Install: SLACK,PAPERCUT,VMWARE Horizon,Cisco VPN; Fix host issue)
+bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/u20-build.sh)
+==============================================
 UNINSTALL:
 
 SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/share-samba-remove.sh)
