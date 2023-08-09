@@ -8,8 +8,20 @@ UBUNTU 20 BUILD: (Install: SLACK,PAPERCUT,VMWARE Horizon,Cisco VPN; Fix host iss
 
 bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/u20-build.sh)
 
+=====================INDIVIDUAL SOFTWARE=========================
 
-==============================================
+Cisco AnyConnect: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/ciscoit.sh)
+
+
+Slack: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/slackit.sh)
+
+
+VMWare Horizon Client: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/vmwareit.sh)
+
+
+PaperCut: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/papercutit.sh)
+
+=================================================================
 UNINSTALL:
 
 SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/share-samba-remove.sh)
