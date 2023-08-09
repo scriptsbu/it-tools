@@ -22,7 +22,7 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
-                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut and exit; press [ENTER] to proceed.\x1b[K\x1b[0m"
                 read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
@@ -75,7 +75,7 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
-                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut and exit; press [ENTER] to proceed.\x1b[K\x1b[0m"
                 read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
