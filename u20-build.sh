@@ -63,6 +63,13 @@ do
                 #======================================================================================
                 #UPDATE
                 sudo apt-get update && apt-get upgrade -f -y
+                #======================================================================================
+                echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
+                sudo lshw -class memory
+                sleep 5
+                echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
+                sudo dmidecode -t system
+                #======================================================================================
                 echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
                 sleep 10 && exit
             ;;
@@ -117,6 +124,13 @@ do
                 #======================================================================================
                 #UPDATE
                 sudo apt-get update && apt-get upgrade -y
+                #======================================================================================
+                echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
+                sudo lshw -class memory
+                sleep 5
+                echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
+                sudo dmidecode -t system
+                #======================================================================================
                 echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
                 sleep 10 && exit
             ;;
