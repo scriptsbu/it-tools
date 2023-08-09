@@ -13,7 +13,7 @@ do
             echo -e "\x1b[41;37mYou chose Option 1 - You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
             read -p ""
             gnome-terminal -- sudo openconnect vpn.torcrobotics.com --authgroup=Employee-Split-Push
-                echo -e "\x1b[41;37m Please press [ENTER] to proceed\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
                 read -p ""
                 #=============================SOFTWARE-INSTALL==========================================
                 #CISCO ANYCONNECT
@@ -22,6 +22,8 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
+                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
                 rm pc-print-deploy-client[papercut.torc.tech].deb
@@ -60,9 +62,11 @@ do
                 #======================================================================================
                 #UPDATE
                 sudo apt-get update && apt-get upgrade -f -y
+                echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
+                sleep 10 && exit
             ;;
         "Option 2")
-                echo -e "\x1b[41;37mYou chose Option 2 - Please press [ENTER] to proceed\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
                 read -p ""
                 #=============================SOFTWARE-INSTALL==========================================
                 #CISCO ANYCONNECT
@@ -71,6 +75,8 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
+                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
                 rm pc-print-deploy-client[papercut.torc.tech].deb
@@ -108,7 +114,9 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #UPDATE
-                sudo apt-get update && apt-get upgrade -f -y
+                sudo apt-get update && apt-get upgrade -y
+                echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
+                sleep 10 && exit
             ;;
         "Quit")
             break
@@ -116,3 +124,4 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+exit
