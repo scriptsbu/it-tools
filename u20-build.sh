@@ -5,11 +5,11 @@ ping -c2 10.20.240.3 | grep packet
 echo -e "\x1b[41;37mIf the packet loss equals 100%, select option 1 to connect to the VPN; otherwise, select option 2 to continue.\x1b[K\x1b[0m"
 sleep 2
 PS3=''
-options=("Option 1" "Option 2" "Quit")
+options=("Option 1-VPN" "Option 2-W/O VPN" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Option 1")
+        "Option 1-VPN")
             echo -e "\x1b[41;37mYou chose Option 1 - You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
             read -p ""
             gnome-terminal -- sudo openconnect vpn.torcrobotics.com --authgroup=Employee-Split-Push
@@ -22,7 +22,7 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
-                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut and exit; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
                 read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
@@ -65,7 +65,7 @@ do
                 echo -e "\x1b[41;37mAll done! You can exit now.\x1b[K\x1b[0m"
                 sleep 10 && exit
             ;;
-        "Option 2")
+        "Option 2-W/O VPN")
                 echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
                 read -p ""
                 #=============================SOFTWARE-INSTALL==========================================
@@ -75,7 +75,7 @@ do
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
-                echo -e "\x1b[41;37mTo finalise the installation, please log in at Papercut and exit; press [ENTER] to proceed.\x1b[K\x1b[0m"
+                echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
                 read -p ""
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
