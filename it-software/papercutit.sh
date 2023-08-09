@@ -7,3 +7,6 @@ rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
 #--------------------------------------
 #Papercut file stored at: t14-aus-it-server
+#If PaperCut shows an error after installation navigate to:
+#nano /var/lib/dpkg/status
+#Find the PaperCut Package status and erase the whole block.
