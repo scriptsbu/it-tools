@@ -29,3 +29,10 @@ SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/so
 
 UBUNTU 20.04 after AWX install [NOTES]:
 
+
+
+==================DEBUG========
+
+
+
+bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/wifi-debug.sh)
