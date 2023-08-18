@@ -73,3 +73,5 @@ done
 #filezilla sftp://CHANGE@10.20.240.3/debug/wifi
 #MAKE THE FILE UPLOAD TO A PUBLIC SERVER
 #LOOK FOR PATTERNS OF WIFI AP CHANGING CONSTANTLY
+#sshpass -f "/path/to/passwordfile" scp -r user@example.com:/some/remote/path /some/local/path
+#https://stackoverflow.com/questions/50096/how-to-pass-password-to-scp
