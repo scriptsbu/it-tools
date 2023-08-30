@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /
-break>"/bintbit"
+break>"/binbit"
 echo "wifi" | tee -a binbit
