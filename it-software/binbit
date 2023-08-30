@@ -1,3 +1,4 @@
 #!/bin/bash
-nano binbit
+cd /
+break>"/bintbit"
 echo "wifi" | tee -a binbit
