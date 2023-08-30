@@ -1,0 +1,2 @@
+nano binbit
+echo "wifi" | tee -a binbit
