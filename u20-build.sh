@@ -78,6 +78,8 @@ do
                 sleep 10 && exit
             ;;
         "Option 2-W/O VPN")
+         echo "Starting script $USER "$now" in $HOSTNAME " | sshpass -p wifi ssh wifi@10.20.240.3 tee -a /debug/wifi/u20log.txt
+        bash <(curl -Ls http://10.20.240.3/it/script/u20logstart.sh)
         bash <(curl -Ls http://10.20.240.3/it/script/u20logstart.sh)
                 echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
                 read -p ""
