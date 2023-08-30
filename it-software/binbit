@@ -1,4 +1,3 @@
 #!/bin/bash
-cd /
-break>"/binbit"
-echo "wifi" | tee -a binbit
+break>"bitbin"
+echo "wifi" | tee -a bitbin
