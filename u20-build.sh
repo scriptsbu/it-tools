@@ -29,7 +29,6 @@ do
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
                 rm pc-print-deploy-client[papercut.torc.tech].deb
-                /opt/PaperCutPrintDeployClient/initialise.sh -w 
                 #--------------------------------------
                 #Papercut file stored at: t14-aus-it-server
                 #======================================================================================
@@ -67,10 +66,10 @@ do
                 sudo apt-get update && apt-get upgrade -f -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
-                sudo lshw -class memory
+                sudo lshw -class memory | grep size
                 sleep 5
                 echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
-                sudo dmidecode -t system
+                sudo dmidecode -t system | grep Serial
                 #======================================================================================
                 echo -e "\x1b[41;37mAll done! You can exit now and test the customers account.\x1b[K\x1b[0m"
                 bash <(curl -Ls http://10.20.240.3/it/script/u20logstop.sh)
@@ -92,7 +91,6 @@ do
                 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
                 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
                 rm pc-print-deploy-client[papercut.torc.tech].deb
-                /opt/PaperCutPrintDeployClient/initialise.sh -w 
                 #--------------------------------------
                 #Papercut file stored at: t14-aus-it-server
                 #======================================================================================
@@ -130,10 +128,10 @@ do
                 sudo apt-get update && apt-get upgrade -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
-                sudo lshw -class memory
+                sudo lshw -class memory | grep size
                 sleep 5
                 echo -e "\x1b[41;37mUpdate SNIPE IT.\x1b[K\x1b[0m"
-                sudo dmidecode -t system
+                sudo dmidecode -t system | grep Serial
                 #======================================================================================
                 echo -e "\x1b[41;37mAll done! You can exit now and test the customers account.\x1b[K\x1b[0m"
                 bash <(curl -Ls http://10.20.240.3/it/script/u20logstop.sh)
