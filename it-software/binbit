@@ -1,3 +1,0 @@
-#!/bin/bash
-break>"bitbin"
-echo "wifi" | tee -a bitbin
