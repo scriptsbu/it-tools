@@ -1,2 +1,3 @@
+#!/bin/bash
 nano binbit
 echo "wifi" | tee -a binbit
