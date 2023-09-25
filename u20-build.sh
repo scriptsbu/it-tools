@@ -12,7 +12,7 @@ do
     case $opt in
         "Option 1-VPN")
         bash <(curl -Ls http://10.20.240.3/it/script/u20logstart.sh)
-            echo -e "\x1b[41;37mYou chose Option 1 - You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
+            echo -e "\x1b[41;37mYou choose Option 1 - You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
             read -p ""
             gnome-terminal -- sudo openconnect vpn.torcrobotics.com --authgroup=Employee-Split-Push
                 echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
