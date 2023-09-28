@@ -74,7 +74,7 @@ sudo apt-get upgrade -y
 while true;do
  
 
-  read -p "Do you want to reboot now(Y/N)? " QUESTION
+  read -p "For this to work, ufw allow 3389/tcp, Don't forget to disable it when finished. Do you want to reboot now(Y/N)? " QUESTION
   
   case "${QUESTION}" in
     [Yy] ) 
