@@ -6,7 +6,7 @@ cd Downloads
 ping -c2 10.20.240.3 | grep packet
 echo -e "\x1b[41;37mIf the packet loss equals 100%, select option 1 to connect to the VPN; otherwise, select option 2 to continue.\x1b[K\x1b[0m"
 PS3=''
-options=("Option 1-I had packet loss and need to Connect to the VPN" "Option 2-Continue" "Quit")
+options=("Option 1-I had packet loss and need to Connect to the VPN" "Option 2-Continue" "Option 3-Quit")
 select opt in "${options[@]}"
 do
     case $opt in
