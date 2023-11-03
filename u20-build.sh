@@ -1,16 +1,16 @@
 #!/bin/bash
-echo -e "\x1b[41;37mRun this script at the ADMIN account; Please press [ENTER] to proceed.\x1b[K\x1b[0m"
+echo -e "\x1b[41;37mPlease read all questions/messages; Please press [ENTER] to proceed.\x1b[K\x1b[0m"
 read -p ""
 sudo apt update
 cd Downloads
 ping -c2 10.20.240.3 | grep packet
 echo -e "\x1b[41;37mIf the packet loss equals 100%, select option 1 to connect to the VPN; otherwise, select option 2 to continue.\x1b[K\x1b[0m"
 PS3=''
-options=("Option 1-VPN" "Option 2-W/O VPN" "Quit")
+options=("Option 1-I had packet loss and need to Connect to the VPN" "Option 2-Continue" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Option 1-VPN")
+        "Option 1-I had packet loss and need to Connect to the VPN")
         bash <(curl -Ls http://10.20.240.3/it/script/u20logstart.sh)
             echo -e "\x1b[41;37mYou choose Option 1 - You need to be on VPN to connect to AUS Server; Please press [ENTER] to proceed and return to this screen.\x1b[K\x1b[0m"
             read -p ""
@@ -63,7 +63,7 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #UPDATE
-                sudo apt-get update && apt-get upgrade -f -y
+                sudo apt update && apt upgrade -f -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
                 sudo lshw -class memory | grep size
@@ -125,7 +125,7 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #UPDATE
-                sudo apt-get update && apt-get upgrade -y
+                sudo apt update && apt upgrade -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
                 sudo lshw -class memory | grep size
