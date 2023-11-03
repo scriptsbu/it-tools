@@ -75,7 +75,7 @@ do
                 bash <(curl -Ls http://10.20.240.3/it/script/u20logstop.sh)
                 sleep 10 && exit
             ;;
-        "Option 2-W/O VPN")
+        "Option 2-Continue")
         bash <(curl -Ls http://10.20.240.3/it/script/u20logstart.sh)
                 echo -e "\x1b[41;37mThe installation may take a few minutes, Please press [ENTER] to proceed with the installation.\x1b[K\x1b[0m"
                 read -p ""
