@@ -23,7 +23,7 @@ PaperCut: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-soft
 
 =================VERIFY=======================
 
-RABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
+ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
 
 =================================================================
 UNINSTALL:
