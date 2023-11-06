@@ -20,7 +20,7 @@ do
                 #=============================SOFTWARE-INSTALL==========================================
                 #CISCO ANYCONNECT
                 wget https://github.com/scriptsbu/software/raw/main/storage/anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh
-                sudo bash anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh && sleep 2 m && sudo rm -r anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh -f
+                sudo bash anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh && sleep 2 && sudo rm -r anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh -f
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
@@ -63,7 +63,7 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #UPDATE
-                sudo apt update && apt upgrade -f -y
+                sudo apt update && sudo apt upgrade -f -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
                 sudo lshw -class memory | grep size
@@ -82,7 +82,7 @@ do
                 #=============================SOFTWARE-INSTALL==========================================
                 #CISCO ANYCONNECT
                 wget https://github.com/scriptsbu/software/raw/main/storage/anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh
-                sudo bash anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh && sleep 2 m && sudo rm -r anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh -f
+                sudo bash anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh && sleep 2 && sudo rm -r anyconnect-linux64-4.10.01075-core-vpn-webdeploy-k9.sh -f
                 sleep 10
                 #======================================================================================
                 #PAPERCUT INSTALL
@@ -125,7 +125,7 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #UPDATE
-                sudo apt update && apt upgrade -y
+                sudo apt update && sudo apt upgrade -y
                 #======================================================================================
                 echo -e "\x1b[41;37mUpgrade RAM if less than 32GB.\x1b[K\x1b[0m"
                 sudo lshw -class memory | grep size
