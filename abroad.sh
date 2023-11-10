@@ -1,6 +1,6 @@
 #!/bin/bash
 dpkg -l | grep VPN  && blkid | grep crypt && lsblk -o +FSTYPE | grep crypt && dpkg -l | grep falcon-sensor && blkid | grep LUKS 
-
+read -p "Screening Done!" 
 while true;do
  
 
