@@ -28,6 +28,10 @@ ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh
 =================================================================
 UNINSTALL:
 
+
+
+OPEN CONNECT: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/openconnectrm.sh)
+
 SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/share-samba-remove.sh)
 
 
