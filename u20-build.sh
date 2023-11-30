@@ -137,7 +137,7 @@ do
                 bash <(curl -Ls http://10.20.240.3/it/script/u20logstop.sh)
                 sleep 10 && exit
             ;;
-        "Quit")
+        "Option 3-Quit")
             break
             ;;
         *) echo "invalid option $REPLY";;
