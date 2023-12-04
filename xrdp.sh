@@ -12,6 +12,7 @@ sudo ufw enable
 sudo systemctl start ufw
 #sudo ufw allow from any to any port 3389 proto tcp
 sudo ufw allow 3389/tcp
+sudo ufw allow 22/tcp
 #UFW AUTO-ENABLE
 cd /lib/systemd/system/
 >ufw.service
