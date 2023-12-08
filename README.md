@@ -21,6 +21,8 @@ VMWare Horizon Client: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw
 
 PaperCut: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/papercutit.sh)
 
+Crowdstrike: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/falcon.sh)
+
 =================VERIFY=======================
 
 ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
