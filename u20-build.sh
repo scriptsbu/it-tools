@@ -62,6 +62,14 @@ do
                 sudo chmod 644 /etc/hosts
                 cat /etc/hosts
                 #======================================================================================
+                #LANDSCAPE ENROLLMENT
+                echo "Would you like to enroll this device on Landscape?(yes/no)"
+                read input
+                if [ "$input" == "yes" ]
+                then
+                bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+                fi
+                #======================================================================================
                 #UPDATE
                 sudo apt update && sudo apt upgrade -f -y
                 #======================================================================================
@@ -123,6 +131,14 @@ do
                 echo "ff02::2 ip6-allrouters" | sudo tee -a /etc/hosts
                 sudo chmod 644 /etc/hosts
                 cat /etc/hosts
+                #======================================================================================
+                #LANDSCAPE ENROLLMENT
+                echo "Would you like to enroll this device on Landscape?(yes/no)"
+                read input
+                if [ "$input" == "yes" ]
+                then
+                bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+                fi
                 #======================================================================================
                 #UPDATE
                 sudo apt update && sudo apt upgrade -y
