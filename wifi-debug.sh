@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /home/$USER
 rm wifi$USER.txt -f
-dmesg | grep -e wlp -e iwl  >  wifi$USER.txt
+sudo dmesg | grep -e wlp -e iwl  >  wifi$USER.txt
 
 while true;do
  
