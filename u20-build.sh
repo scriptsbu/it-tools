@@ -63,12 +63,12 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #LANDSCAPE ENROLLMENT
-                echo "Would you like to enroll this device on Landscape?(yes/no)"
-                read input
-                if [ "$input" == "yes" ]
-                then
-                bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
-                fi
+                #echo "Would you like to enroll this device on Landscape?(yes/no)"
+                #read input
+                #if [ "$input" == "yes" ]
+                #then
+                #bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+                #fi
                 #======================================================================================
                 #UPDATE
                 sudo apt update && sudo apt upgrade -f -y
@@ -133,12 +133,12 @@ do
                 cat /etc/hosts
                 #======================================================================================
                 #LANDSCAPE ENROLLMENT
-                echo "Would you like to enroll this device on Landscape?(yes/no)"
-                read input
-                if [ "$input" == "yes" ]
-                then
-                bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
-                fi
+                #echo "Would you like to enroll this device on Landscape?(yes/no)"
+                #read input
+                #if [ "$input" == "yes" ]
+                #then
+                #bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+                #fi
                 #======================================================================================
                 #UPDATE
                 sudo apt update && sudo apt upgrade -y
