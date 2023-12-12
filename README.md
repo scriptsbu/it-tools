@@ -23,6 +23,8 @@ PaperCut: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-soft
 
 Crowdstrike: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/falcon.sh)
 
+Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+
 =================VERIFY=======================
 
 ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
