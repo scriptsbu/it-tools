@@ -9,6 +9,7 @@ sudo dpkg --install --force-overwrite pc-print-deploy-client[papercut.torc.tech]
 rm pc-print-deploy-client[papercut.torc.tech].deb
 /opt/PaperCutPrintDeployClient/initialise.sh -w
 sudo apt upgrade -y
+sudo dpkg -l | grep papercut
 #--------------------------------------
 #Papercut file stored at: t14-aus-it-server
 #If PaperCut shows an error after installation navigate to:
