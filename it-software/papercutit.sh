@@ -15,7 +15,8 @@ read -p ""
 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
 sudo dpkg --install --force-overwrite pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
-/opt/PaperCutPrintDeployClient/initialise.sh -w
+sudo bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
+sudo bash /opt/PaperCutPrintDeployClient/initialise.sh -w
 sudo apt upgrade -y
 sudo dpkg -l | grep papercut
 #--------------------------------------
