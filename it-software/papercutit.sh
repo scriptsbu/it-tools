@@ -24,6 +24,8 @@ sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
 echo -e "\x1b[41;37mRestarting your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
+papercutver=$(sudo dpkg -l | grep papercut)
+echo -e "The TORC $papercutver has been installed"
 #ANYTHING BELOW THIS LINE WILL NOT EXECUTE
 bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
