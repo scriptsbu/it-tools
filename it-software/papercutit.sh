@@ -1,5 +1,6 @@
 #!/bin/bash
 cd ~/Downloads
+sudo apt install libc6 -f
 rm pc-print-deploy-client[papercut.torc.tech].deb -f
 sudo bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
 sudo apt-get remove papercut-print-deploy-client
