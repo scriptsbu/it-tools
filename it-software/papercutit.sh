@@ -1,7 +1,7 @@
 #!/bin/bash
 #REMOVING OLD FILES
 cd ~/Downloads
-bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
+bash /opt/PaperCutPrintDeployClient/uninitialise.sh
 sudo apt-get remove papercutprintdeployclient -y -f
 sudo apt-get purge papercutprintdeployclient -y -f
 sudo rm pc-print-deploy-client[papercut.torc.tech].deb -f
@@ -20,11 +20,13 @@ sudo apt update
 echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
 read -p ""
 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
-sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb | exit
+sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
+bash /opt/PaperCutPrintDeployClient/initialise.sh -w &
+#bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
+gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
 sudo dpkg -l | grep papercut
-gnome-terminal -x bash -c "bash /opt/PaperCutPrintDeployClient/initialise.sh -w; exec bash" &
 #-------------TROUBLESHOOTING-BACKUP-------------------------
 #Papercut file stored at: t14-aus-it-server
 #If PaperCut shows an error after installation navigate to:
