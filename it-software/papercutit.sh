@@ -1,6 +1,7 @@
 #!/bin/bash
 #REMOVING OLD FILES
 cd ~/Downloads
+bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
 sudo apt-get remove papercutprintdeployclient -y -f
 sudo apt-get purge papercutprintdeployclient -y -f
 sudo rm pc-print-deploy-client[papercut.torc.tech].deb -f
@@ -22,7 +23,7 @@ wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
-sudo bash /opt/PaperCutPrintDeployClient/initialise.sh -w
+bash /opt/PaperCutPrintDeployClient/initialise.sh -w
 sudo dpkg -l | grep papercut
 #-------------TROUBLESHOOTING-BACKUP-------------------------
 #Papercut file stored at: t14-aus-it-server
