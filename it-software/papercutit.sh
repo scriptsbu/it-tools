@@ -24,6 +24,7 @@ sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb | exit
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
 sudo dpkg -l | grep papercut
+gnome-terminal -x bash -c "bash /opt/PaperCutPrintDeployClient/initialise.sh -w; exec bash" &
 #-------------TROUBLESHOOTING-BACKUP-------------------------
 #Papercut file stored at: t14-aus-it-server
 #If PaperCut shows an error after installation navigate to:
