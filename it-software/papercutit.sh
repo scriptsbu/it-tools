@@ -29,7 +29,6 @@ echo -e "The TORC 20.04 $papercutver has been installed"
 #ANYTHING BELOW THIS LINE WILL NOT EXECUTE Except for 30-31-32-33-34
 bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
-echo -e "\x1b[41;37mRestarting your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
 papercutver=$(sudo dpkg -l | grep papercut)
 echo -e "The TORC 20.04 $papercutver has been installed"
 #-------------TROUBLESHOOTING-BACKUP-------------------------
