@@ -26,6 +26,7 @@ sudo apt upgrade -y
 bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
 sudo dpkg -l | grep papercut
+echo -e "\x1b[41;37mRestarting your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
 #-------------TROUBLESHOOTING-BACKUP-------------------------
 #Papercut file stored at: t14-aus-it-server
 #If PaperCut shows an error after installation navigate to:
