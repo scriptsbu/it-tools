@@ -2,6 +2,8 @@
 #sudo echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee -a /etc/apt/sources.list
 cd ~/Downloads
 #sudo apt install libc6 -f
+sudo apt-get remove papercutprintdeployclient -f
+sudo apt-get purge papercutprintdeployclient -f
 rm pc-print-deploy-client[papercut.torc.tech].deb -f
 sudo bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
 sudo apt-get remove papercut-print-deploy-client
