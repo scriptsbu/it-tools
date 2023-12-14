@@ -26,9 +26,11 @@ sudo apt upgrade -y
 echo -e "\x1b[41;37mRestarting or logging off your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
 papercutver=$(sudo dpkg -l | grep papercut)
 echo -e "The \x1b[41;37mTORC\x1b[K\x1b[0m 20.04 $papercutver has been installed"
-#ANYTHING BELOW THIS LINE WILL NOT EXECUTE Except for 30-31-32-33-34
+#ANYTHING BELOW THIS LINE WILL NOT EXECUTE Except for 30-31-33-34-35
 bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
+#REPETING THESE 3 LINES JUST IN CASE 26-27-28 DON'T EXECUTE
+echo -e "\x1b[41;37mRestarting or logging off your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
 papercutver=$(sudo dpkg -l | grep papercut)
 echo -e "The \x1b[41;37mTORC\x1b[K\x1b[0m 20.04 $papercutver has been installed"
 #-------------TROUBLESHOOTING-BACKUP-------------------------
