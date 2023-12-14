@@ -23,8 +23,7 @@ wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
-bash /opt/PaperCutPrintDeployClient/initialise.sh -w &
-#bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
+bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
 sudo dpkg -l | grep papercut
 #-------------TROUBLESHOOTING-BACKUP-------------------------
