@@ -20,10 +20,10 @@ sudo apt update
 echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
 read -p ""
 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
-sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
+gnome-terminal -x bash -c "sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb; exec bash"
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
-#gnome-terminal -x bash -c "bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/paperinit.sh) && sudo dpkg -l | grep papercut; exec bash"
+sudo dpkg -l | grep papercut
 #-------------TROUBLESHOOTING-BACKUP-------------------------
 #Papercut file stored at: t14-aus-it-server
 #If PaperCut shows an error after installation navigate to:
