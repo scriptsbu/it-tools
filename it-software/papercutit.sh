@@ -23,6 +23,7 @@ wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
 sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 sudo apt upgrade -y
+echo -e "\x1b[41;37mRestarting your computer will bring up the Papercut client icon in the taskbar.\x1b[K\x1b[0m"
 bash /opt/PaperCutPrintDeployClient/initialise.sh -w & 
 gnome-terminal -- bash /opt/PaperCutPrintDeployClient/initialise.sh
 sudo dpkg -l | grep papercut
