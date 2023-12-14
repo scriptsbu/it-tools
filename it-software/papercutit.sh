@@ -1,10 +1,14 @@
 #!/bin/bash
-sudo bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w && sudo apt-get remove papercut-print-deploy-client && sudo rm -r /opt/PaperCutPrintDeployClient -f && sudo dpkg -P papercutprintdeployclient
-sudo apt update -y
+cd ~/Downloads
+rm pc-print-deploy-client[papercut.torc.tech].deb -f
+sudo bash /opt/PaperCutPrintDeployClient/uninitialise.sh -w
+sudo apt-get remove papercut-print-deploy-client
+sudo rm -r /opt/PaperCutPrintDeployClient -f
+sudo dpkg -P papercutprintdeployclient
+sudo apt update
 echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
 read -p ""
 wget http://10.20.240.3/it/pc-print-deploy-client[papercut.torc.tech].deb
-sudo dpkg -i pc-print-deploy-client[papercut.torc.tech].deb
 sudo dpkg --install --force-overwrite pc-print-deploy-client[papercut.torc.tech].deb
 rm pc-print-deploy-client[papercut.torc.tech].deb
 /opt/PaperCutPrintDeployClient/initialise.sh -w
