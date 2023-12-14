@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo echo "deb http://security.ubuntu.com/ubuntu jammy-security main" >> /etc/apt/sources.list
+sudo echo "deb http://security.ubuntu.com/ubuntu jammy-security main" | sudo tee -a /etc/apt/sources.list
 cd ~/Downloads
 sudo apt install libc6 -f
 rm pc-print-deploy-client[papercut.torc.tech].deb -f
