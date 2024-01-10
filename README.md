@@ -25,6 +25,9 @@ Crowdstrike: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/falc
 
 Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
 
+
+Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/citrix.sh)
+
 =================VERIFY=======================
 
 ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
