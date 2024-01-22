@@ -17,7 +17,7 @@ while true;do
       ;;
 
     * ) 
-      echo "Don't forget to Reboot the system to apply changes!"
+      echo "Hey TORC'r, Don't forget to Reboot the system to apply changes!"
       exit
       ;;
   esac
