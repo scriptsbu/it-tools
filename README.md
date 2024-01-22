@@ -28,6 +28,10 @@ Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landsc
 
 Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/citrix.sh)
 
+
+
+Dell display link driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/delldisplaylink.sh)
+
 =================VERIFY=======================
 
 ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/abroad.sh)
