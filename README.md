@@ -1,4 +1,6 @@
-INSTALL:
+=================================================================
+INSTALL
+=================================================================
 
 SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/share-samba-install.sh)
 
@@ -8,7 +10,9 @@ UBUNTU 20 BUILD: (Install: SLACK,PAPERCUT,VMWARE Horizon,Cisco VPN; Fix host iss
 
 bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/u20-build.sh)
 
-=====================INDIVIDUAL SOFTWARE=========================
+=================================================================
+INDIVIDUAL SOFTWARE
+=================================================================
 
 Cisco AnyConnect: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/ciscoit.sh)
 
@@ -32,15 +36,18 @@ Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-softwa
 
 Dell display link driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/delldisplaylink.sh)
 
-=================VERIFY=======================
+=================================================================
+VERIFY
+=================================================================
 
 Linux - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/linux-abroad.sh)
 
 
 macOS - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/mac-abroad.sh)
+
 =================================================================
 UNINSTALL:
-
+=================================================================
 
 
 OPEN CONNECT: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/openconnectrm.sh)
@@ -51,9 +58,9 @@ SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/so
 UBUNTU 20.04 after AWX install [NOTES]:
 
 
-
-==================DEBUG========
-
+=================================================================
+DEBUG
+=================================================================
 
 
 bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/wifi-debug.sh)
