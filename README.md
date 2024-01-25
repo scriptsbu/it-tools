@@ -1,4 +1,4 @@
-=================================================================
+
 INSTALL
 =================================================================
 
@@ -10,7 +10,7 @@ UBUNTU 20 BUILD: (Install: SLACK,PAPERCUT,VMWARE Horizon,Cisco VPN; Fix host iss
 
 bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/u20-build.sh)
 
-=================================================================
+
 INDIVIDUAL SOFTWARE
 =================================================================
 
@@ -36,7 +36,7 @@ Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-softwa
 
 Dell display link driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/delldisplaylink.sh)
 
-=================================================================
+
 VERIFY
 =================================================================
 
@@ -45,7 +45,7 @@ Linux - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/l
 
 macOS - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/mac-abroad.sh)
 
-=================================================================
+
 UNINSTALL:
 =================================================================
 
@@ -58,7 +58,7 @@ SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/so
 UBUNTU 20.04 after AWX install [NOTES]:
 
 
-=================================================================
+
 DEBUG
 =================================================================
 
