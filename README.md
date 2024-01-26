@@ -14,6 +14,8 @@ bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/u20-build.sh)
 INDIVIDUAL SOFTWARE
 =================================================================
 
+Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+
 Cisco AnyConnect: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/ciscoit.sh)
 
 
