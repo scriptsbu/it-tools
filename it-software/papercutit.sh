@@ -2,6 +2,7 @@
 #REMOVING OLD FILES
 cd ~/Downloads
 bash /opt/PaperCutPrintDeployClient/uninitialise.sh
+sudo dpkg --purge papercutprintdeployclient -y -f
 sudo apt-get remove papercutprintdeployclient -y -f
 sudo apt-get purge papercutprintdeployclient -y -f
 sudo rm pc-print-deploy-client[papercut.torc.tech].deb -f
@@ -15,6 +16,7 @@ sudo rm -r papercut-print-deploy-client.md5sums
 sudo rm -r papercut-print-deploy-client.postinst
 sudo rm -r papercut-print-deploy-client.prerm
 #INSTALLING PAPERCUT
+groupadd papercut
 cd ~/Downloads
 sudo apt update
 echo -e "\x1b[41;37mTo finalise the installation, please exit Papercut when it starts; press [ENTER] to proceed.\x1b[K\x1b[0m"
