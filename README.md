@@ -56,6 +56,7 @@ OPEN CONNECT: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/ope
 
 SAMBA (Share files WIN<>UBUNTU): bash <(curl -Ls https://github.com/scriptsbu/software/raw/main/share-samba-remove.sh)
 
+Cisco Anyconnect: sudo /opt/cisco/vpn/bin/vpn_uninstall.sh
 
 UBUNTU 20.04 after AWX install [NOTES]:
 
