@@ -16,7 +16,7 @@ FW Update: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/fwupda
 INDIVIDUAL SOFTWARE
 =================================================================
 
-Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
+Landscape (DO NOT USE THROUGH SSH): bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
 
 Cisco AnyConnect: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/ciscoit.sh)
 
@@ -31,8 +31,7 @@ PaperCut: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-soft
 
 Crowdstrike: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/falcon.sh)
 
-Landscape: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/landscape.sh)
-
+Landscape SSH: bash <(curl -Ls http://10.20.240.3/it/script/install_landscape_and_prov2-ssh.sh)
 
 Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-software/citrix.sh)
 
