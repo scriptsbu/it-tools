@@ -70,3 +70,12 @@ DEBUG
 
 
 bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/wifi-debug.sh)
+
+
+CHANGE
+=================================================================
+
+
+sudo cryptsetup luksChangeKey /dev/nvme0n1p4
+
+sudo cryptsetup luksChangeKey /dev/nvme0n1p3
