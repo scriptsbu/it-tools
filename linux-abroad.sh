@@ -1,5 +1,7 @@
 #!/bin/bash
-dpkg -l | grep VPN && dpkg -l | grep falcon-sensor && dpkg -l | grep globalprotect  && blkid | grep crypt && lsblk -o +FSTYPE | grep crypt && blkid | grep LUKS 
+dpkg -l | grep VPN && dpkg -l | grep falcon-sensor && dpkg -l | grep globalprotect  && dpkg -l | grep landscape-client && blkid | grep crypt && lsblk -o +FSTYPE | grep crypt && blkid | grep LUKS
+sudo systemctl status landscape-client.service
+echo " "
 read -p "Screening Done!" 
 #while true;do
  
