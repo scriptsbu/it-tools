@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update && sudo apt upgrade -y
 dpkg -l | grep VPN && dpkg -l | grep falcon-sensor && dpkg -l | grep globalprotect  && dpkg -l | grep landscape-client && blkid | grep crypt && lsblk -o +FSTYPE | grep crypt && blkid | grep LUKS
 sudo systemctl status landscape-client.service
 sudo systemctl status falcon-sensor.service
