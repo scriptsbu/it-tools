@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt update
 #verify GPU installed:
 hwinfo --gfxcard --short
 #install nvidia driver:
