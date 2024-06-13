@@ -12,6 +12,8 @@ Install: SLACK,PAPERCUT,VMWARE Horizon,Cisco VPN; Fix host issue: bash <(curl -L
 
 FW Update: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/fwupdate.sh)
 
+Nvidia driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/nvidia.sh)
+
 
 INDIVIDUAL SOFTWARE
 =================================================================
