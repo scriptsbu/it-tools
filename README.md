@@ -52,6 +52,8 @@ Linux - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/l
 
 macOS - ABROAD: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/mac-abroad.sh)
 
+Verify Encryption luks: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/verify-luks.sh)
+
 
 UNINSTALL:
 =================================================================
