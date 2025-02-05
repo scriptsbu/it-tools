@@ -73,8 +73,9 @@ DEBUG
 =================================================================
 
 
-bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/wifi-debug.sh)
+WIFI LOG: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/wifi-debug.sh)
 
+WIFI Signal: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/refs/heads/main/wifisignal.sh)
 
 CHANGE
 =================================================================
