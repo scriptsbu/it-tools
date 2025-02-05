@@ -4,14 +4,14 @@
 
 # Function to check Wi-Fi status
 check_wifi_status() {
-    echo "Checking Wi-Fi status..."
-    nmcli -f IN-USE,SSID,SIGNAL,BARS dev wifi
+    echo "Checking current Wi-Fi connection status..."
+    nmcli -f IN-USE,SSID,SIGNAL,BARS dev wifi | grep '*'
 }
 
 # Function to display connection details
 display_connection_details() {
-    echo -e "\nCurrent Wi-Fi Connection Details:"
-    nmcli -f ALL connection show --active | grep -A 10 "wifi"
+    echo -e "\nCurrent active Wi-Fi Connection Details:"
+    nmcli -f ALL connection show --active | grep -A 10 "wifi" | grep -v "wifi"
 }
 
 # Function to check network connectivity
@@ -31,8 +31,14 @@ suggestions_based_on_signal() {
     
     if [ "$signal" -lt 30 ]; then
         echo "Signal is weak. Consider moving closer to the router."
+        echo "If you're unsure where the router is, try to follow the signal strength as you walk around."
+        echo "You can monitor your signal by running: watch -n 1 iwconfig"
+        echo "Press Ctrl + C to exit this monitoring."
     elif [ "$signal" -lt 60 ]; then
         echo "Signal is fair. You may experience some connectivity issues."
+        echo "Consider moving closer to the router for a better connection."
+        echo "You can monitor your signal by running: watch -n 1 iwconfig"
+        echo "Press Ctrl + C to exit this monitoring."
     else
         echo "Signal is strong. Your connection should be stable."
     fi
@@ -50,3 +56,4 @@ main() {
 main
 
 echo -e "\nWi-Fi troubleshooting completed."
+echo "To exit the script at any time, press Ctrl + C."
