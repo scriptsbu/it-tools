@@ -44,6 +44,9 @@ Citrix: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/it-softwa
 Dell display link driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/delldisplaylink.sh)
 
 
+Dell dock driver nixOS: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/main/delldisplaylink.sh)
+
+
 VERIFY
 =================================================================
 
