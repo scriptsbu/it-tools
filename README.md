@@ -46,6 +46,8 @@ Dell display link driver: bash <(curl -Ls https://github.com/scriptsbu/it-tools/
 
 Dell dock driver nixOS: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/refs/heads/main/dell-dock-nix.sh)
 
+Dell dock driver Ubuntu 24.04: bash <(curl -Ls https://github.com/scriptsbu/it-tools/raw/refs/heads/main/dell-dock-24.sh)
+
 
 VERIFY
 =================================================================
