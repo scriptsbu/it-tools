@@ -1,76 +1,84 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # ===============================================================
-# DisplayLink 5.6.0 installer for Ubuntu 24.04 (Noble Numbat)
-# with full Dell Dock support (D6000, WD19, UD22)
+# DisplayLink installer for Ubuntu 24.04 (Noble Numbat)
+# with Dell Dock (D6000, WD19, UD22) support
 # Author: Alberto Lopez-Santiago Scripts
 # ===============================================================
 
 DRIVER_VER="5.6.0-59.176"
-ZIP_URL="https://www.displaylink.com/downloads/file?id=1779"
+PRIMARY_URL="https://www.displaylink.com/downloads/file?id=1779"
 WORKDIR="$HOME/Downloads/displaylink-driver"
-RUNFILE="displaylink-driver-${DRIVER_VER}.run"
 
 echo "==> Preparing DisplayLink ${DRIVER_VER} installation for Ubuntu 24.04"
-sudo apt update
+sudo apt update -y
 
 # ---------------------------------------------------------------
 # 1️⃣ Install required dependencies
 # ---------------------------------------------------------------
 sudo apt install -y \
-  dkms evdi-dkms linux-headers-$(uname -r) \
+  dkms evdi-dkms "linux-headers-$(uname -r)" \
   unzip wget libdrm-dev libglib2.0-0 libudev1 libusb-1.0-0 \
   libx11-6 libxext6 libxrandr2 libxcb1 libxinerama1 libxi6 \
   network-manager libappindicator3-1 gnome-shell-extension-appindicator || true
 
 mkdir -p "$WORKDIR"
-cd "$WORKDIR"
+cd "$WORKDIR" || exit 1
 
 # ---------------------------------------------------------------
-# 2️⃣ Download and extract the DisplayLink driver
+# 2️⃣ Download DisplayLink driver (with fallback)
 # ---------------------------------------------------------------
-echo "==> Downloading DisplayLink ${DRIVER_VER} from DisplayLink.com"
-wget -O displaylink.zip "$ZIP_URL"
-
-echo "==> Extracting installer..."
-unzip -o displaylink.zip
-
-# Some zip archives use slightly different naming
-RUNFILE_FOUND=$(find . -type f -name "displaylink-driver-*.run" | head -n1)
-if [[ -z "${RUNFILE_FOUND}" ]]; then
-  echo "Error: Installer not found after extraction!"
-  exit 1
+echo "==> Downloading DisplayLink ${DRIVER_VER} from DisplayLink.com..."
+if ! wget -q --show-progress -O displaylink.zip "$PRIMARY_URL"; then
+  echo "⚠️  Primary link failed — attempting to auto-discover the latest version..."
+  FALLBACK_URL=$(wget -qO- https://www.displaylink.com/downloads/ubuntu | \
+    grep -oE 'https://www\.displaylink\.com/downloads/file\?id=[0-9]+' | head -n1 || true)
+  if [ -n "${FALLBACK_URL:-}" ]; then
+    echo "==> Found fallback URL: $FALLBACK_URL"
+    wget -q --show-progress -O displaylink.zip "$FALLBACK_URL"
+  else
+    echo "❌ Failed to locate fallback DisplayLink URL. Visit:"
+    echo "   https://www.displaylink.com/downloads/ubuntu"
+    exit 1
+  fi
 fi
 
-chmod +x "${RUNFILE_FOUND}"
+echo "==> Extracting installer..."
+unzip -o displaylink.zip >/dev/null
+
+RUNFILE=$(find . -type f -name "displaylink-driver-*.run" | head -n1 || true)
+if [[ -z "${RUNFILE:-}" ]]; then
+  echo "❌ Could not locate .run installer inside ZIP."
+  exit 1
+fi
+chmod +x "$RUNFILE"
 
 # ---------------------------------------------------------------
-# 3️⃣ Run the official installer
+# 3️⃣ Run the official DisplayLink installer
 # ---------------------------------------------------------------
 echo "==> Running DisplayLink installer..."
-sudo "${RUNFILE_FOUND}" || {
-  echo "⚠️  DisplayLink installer exited with non-zero code; check logs under /var/log/displaylink."
+if ! sudo "$RUNFILE"; then
+  echo "⚠️  DisplayLink installer exited with errors. Check logs in /var/log/displaylink."
   exit 1
-}
+fi
 
 # ---------------------------------------------------------------
 # 4️⃣ Dell Dock post-install configuration
 # ---------------------------------------------------------------
-echo "==> Applying Dell Dock configuration..."
-
-# Load evdi module (for DisplayLink video)
+echo "==> Configuring Dell Dock support..."
 sudo modprobe evdi || true
-
-# Restart DisplayLink service
 sudo systemctl daemon-reexec || true
 sudo systemctl daemon-reload || true
 sudo systemctl enable displaylink-driver.service
 sudo systemctl restart displaylink-driver.service || true
 
-# Blacklist conflicting USB/Ethernet drivers that break Dell dock networking
-echo "blacklist cdc_ncm" | sudo tee /etc/modprobe.d/blacklist-cdc_ncm.conf >/dev/null
-echo "blacklist cdc_ether" | sudo tee -a /etc/modprobe.d/blacklist-cdc_ncm.conf >/dev/null
-sudo update-initramfs -u
+# Blacklist conflicting USB Ethernet modules (improves Dell Dock Ethernet)
+{
+  echo "blacklist cdc_ncm"
+  echo "blacklist cdc_ether"
+} | sudo tee /etc/modprobe.d/blacklist-cdc_ncm.conf >/dev/null
+
+sudo update-initramfs -u >/dev/null
 
 # ---------------------------------------------------------------
 # 5️⃣ Clean up temporary files
@@ -80,32 +88,32 @@ cd ..
 rm -rf "$WORKDIR"
 
 # ---------------------------------------------------------------
-# 6️⃣ Final user guidance
+# 6️⃣ Final message
 # ---------------------------------------------------------------
 cat <<'EOF'
 
-✅ DisplayLink installation complete!
-✅ Dell Dock USB, Ethernet, and DisplayLink displays are now configured.
+✅ DisplayLink 5.6.0 installation complete!
+✅ Dell Dock USB, Ethernet, and DisplayLink video outputs configured.
 
-You can verify with:
+To verify installation:
   sudo systemctl status displaylink-driver.service
   lsmod | grep evdi
   xrandr --listproviders
 
 ⚙️ Notes:
-- For best results, reboot your system.
-- If using Wayland (default in Ubuntu 24.04):
-    → External displays via DisplayLink may not mirror/extend properly.
-    → Log out and choose “Ubuntu on Xorg” from the login gear icon.
+- For best results, reboot your system now.
+- If using Wayland (default on Ubuntu 24.04):
+    → External displays may not appear properly.
+    → Log out and choose “Ubuntu on Xorg” before logging in.
 - Dell Dock Ethernet/USB ports should work immediately.
 
 EOF
 
 # ---------------------------------------------------------------
-# 7️⃣ Optional reboot
+# 7️⃣ Prompt for reboot
 # ---------------------------------------------------------------
 read -rp "Do you want to reboot now (Y/N)? " ans
-case "${ans}" in
+case "${ans:-}" in
   [Yy]* ) echo "Rebooting..."; sudo reboot ;;
-  * ) echo "Please reboot later to apply DisplayLink and Dell Dock changes." ;;
+  * ) echo "Please reboot manually later to finalize installation." ;;
 esac
