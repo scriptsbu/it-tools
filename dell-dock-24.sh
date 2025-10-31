@@ -1,88 +1,111 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # ===============================================================
-# DisplayLink 5.6.0 installer for Ubuntu 24.04 + Dell Dock support
+# DisplayLink 5.6.0 installer for Ubuntu 24.04 (Noble Numbat)
+# with full Dell Dock support (D6000, WD19, UD22)
 # Author: Alberto Lopez-Santiago Scripts
 # ===============================================================
 
 DRIVER_VER="5.6.0-59.176"
-ZIP_URL="https://dl.dell.com/FOLDER08515978M/1/NR-152011-LS-2_DisplayLink_Ubuntu_${DRIVER_VER}_Software.zip"
+ZIP_URL="https://www.displaylink.com/downloads/file?id=1779"
 WORKDIR="$HOME/Downloads/displaylink-driver"
 RUNFILE="displaylink-driver-${DRIVER_VER}.run"
 
-echo "==> Preparing DisplayLink installation for Ubuntu 24.04"
+echo "==> Preparing DisplayLink ${DRIVER_VER} installation for Ubuntu 24.04"
 sudo apt update
 
-# Install required packages
-sudo apt install -y dkms evdi-dkms linux-headers-$(uname -r) \
+# ---------------------------------------------------------------
+# 1️⃣ Install required dependencies
+# ---------------------------------------------------------------
+sudo apt install -y \
+  dkms evdi-dkms linux-headers-$(uname -r) \
   unzip wget libdrm-dev libglib2.0-0 libudev1 libusb-1.0-0 \
-  libx11-6 libxext6 libxrandr2 libxcb1 libxinerama1 libxi6
-
-# Optional utilities
-sudo apt install -y network-manager libappindicator3-1 gnome-shell-extension-appindicator || true
+  libx11-6 libxext6 libxrandr2 libxcb1 libxinerama1 libxi6 \
+  network-manager libappindicator3-1 gnome-shell-extension-appindicator || true
 
 mkdir -p "$WORKDIR"
 cd "$WORKDIR"
 
-echo "==> Downloading DisplayLink ${DRIVER_VER}"
+# ---------------------------------------------------------------
+# 2️⃣ Download and extract the DisplayLink driver
+# ---------------------------------------------------------------
+echo "==> Downloading DisplayLink ${DRIVER_VER} from DisplayLink.com"
 wget -O displaylink.zip "$ZIP_URL"
 
 echo "==> Extracting installer..."
 unzip -o displaylink.zip
-chmod +x "$RUNFILE"
 
-echo "==> Running installer..."
-sudo ./"$RUNFILE" || {
-  echo "DisplayLink installer exited with errors."
+# Some zip archives use slightly different naming
+RUNFILE_FOUND=$(find . -type f -name "displaylink-driver-*.run" | head -n1)
+if [[ -z "${RUNFILE_FOUND}" ]]; then
+  echo "Error: Installer not found after extraction!"
+  exit 1
+fi
+
+chmod +x "${RUNFILE_FOUND}"
+
+# ---------------------------------------------------------------
+# 3️⃣ Run the official installer
+# ---------------------------------------------------------------
+echo "==> Running DisplayLink installer..."
+sudo "${RUNFILE_FOUND}" || {
+  echo "⚠️  DisplayLink installer exited with non-zero code; check logs under /var/log/displaylink."
   exit 1
 }
 
-echo "==> Cleaning up..."
-rm -f displaylink.zip "$RUNFILE"
-cd ..
-rmdir "$WORKDIR" 2>/dev/null || true
-
 # ---------------------------------------------------------------
-# Post-install configuration for Dell Dock (e.g., D6000/UD22)
+# 4️⃣ Dell Dock post-install configuration
 # ---------------------------------------------------------------
+echo "==> Applying Dell Dock configuration..."
 
-echo "==> Applying Dell Dock post-install setup..."
-
-# Reload udev and modules
+# Load evdi module (for DisplayLink video)
 sudo modprobe evdi || true
+
+# Restart DisplayLink service
+sudo systemctl daemon-reexec || true
+sudo systemctl daemon-reload || true
+sudo systemctl enable displaylink-driver.service
 sudo systemctl restart displaylink-driver.service || true
 
-# Fix USB/Ethernet quirks (optional)
+# Blacklist conflicting USB/Ethernet drivers that break Dell dock networking
 echo "blacklist cdc_ncm" | sudo tee /etc/modprobe.d/blacklist-cdc_ncm.conf >/dev/null
 echo "blacklist cdc_ether" | sudo tee -a /etc/modprobe.d/blacklist-cdc_ncm.conf >/dev/null
-
 sudo update-initramfs -u
 
-# Enable DisplayLink service at boot
-sudo systemctl enable displaylink-driver.service
+# ---------------------------------------------------------------
+# 5️⃣ Clean up temporary files
+# ---------------------------------------------------------------
+echo "==> Cleaning up..."
+cd ..
+rm -rf "$WORKDIR"
 
-# Show helpful info
+# ---------------------------------------------------------------
+# 6️⃣ Final user guidance
+# ---------------------------------------------------------------
 cat <<'EOF'
 
 ✅ DisplayLink installation complete!
-✅ Required services installed and enabled.
-✅ Dell Dock USB/Ethernet and external display support configured.
+✅ Dell Dock USB, Ethernet, and DisplayLink displays are now configured.
 
-To verify:
+You can verify with:
   sudo systemctl status displaylink-driver.service
   lsmod | grep evdi
   xrandr --listproviders
 
-If using Wayland (default on Ubuntu 24.04):
-  - Log out and switch to X11 for full DisplayLink display mirroring
-    (Gear icon → "Ubuntu on Xorg" on the login screen)
-  - Wayland can still use the dock's Ethernet/USB ports fine.
+⚙️ Notes:
+- For best results, reboot your system.
+- If using Wayland (default in Ubuntu 24.04):
+    → External displays via DisplayLink may not mirror/extend properly.
+    → Log out and choose “Ubuntu on Xorg” from the login gear icon.
+- Dell Dock Ethernet/USB ports should work immediately.
 
 EOF
 
-# Prompt for reboot
+# ---------------------------------------------------------------
+# 7️⃣ Optional reboot
+# ---------------------------------------------------------------
 read -rp "Do you want to reboot now (Y/N)? " ans
 case "${ans}" in
   [Yy]* ) echo "Rebooting..."; sudo reboot ;;
-  * ) echo "Remember to reboot to activate DisplayLink and Dell Dock support!" ;;
+  * ) echo "Please reboot later to apply DisplayLink and Dell Dock changes." ;;
 esac
